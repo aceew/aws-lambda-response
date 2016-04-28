@@ -8,13 +8,13 @@ $ npm install --save aws-lambda-response
 ```
 
 ## Why
-API Gateway does not support objects as the error parameter in callbacks from Lambda, this package solves this buy stringifying error and failure responses and assumes the JSON is parsed at API Gateway level. 
+API Gateway does not support objects as the error parameter in callbacks from Lambda, this package solves this buy stringifying error and failure responses and assumes the JSON is parsed at API Gateway level.
 
 
 ## Usage
 
 ```js
-require resp from 'aws-lambda-response';
+import resp from 'aws-lambda-response';
 
 function handler(event, contect, callback) {
   callback(resp.success(200, { hello: "World"}));

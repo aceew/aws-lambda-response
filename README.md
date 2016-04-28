@@ -1,4 +1,4 @@
-# aws-lambda-response
+# aws-lambda-response [![Build Status](https://travis-ci.org/aceew/aws-lambda-response.svg?branch=master)](https://travis-ci.org/aceew/aws-lambda-response)
 
 > A simple package for sending standard responses in AWS Lambda callback functions.
 

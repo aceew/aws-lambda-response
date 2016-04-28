@@ -1,6 +1,6 @@
 # aws-lambda-response [![Build Status](https://travis-ci.org/aceew/aws-lambda-response.svg?branch=master)](https://travis-ci.org/aceew/aws-lambda-response)
 
-> A simple package for sending standard responses in AWS Lambda callback functions.
+> A simple package for building standard responses in AWS Lambda callback functions to be handled by API Gateway.
 
 ## Install
 ```
@@ -16,19 +16,31 @@ API Gateway does not support objects as the error parameter in callbacks from La
 ```js
 import resp from 'aws-lambda-response';
 
-function handler(event, contect, callback) {
-  callback(resp.success(200, { hello: "World"}));
+function handler(event, context, callback) {
+  callback(null, resp.success(200, { hello: "World"}));
 }
 
 export { handler };
 
 ```
 
-
 ## API
+The following API is based on the imported module being named `resp`, however it can be substituted for any name you want.
 
-### resp.success(statusCode, data)
+```js
+// ES6 modules
+import resp from 'aws-lambda-response';
 
+// commonJS modules
+const resp = require('aws-lambda-response');
+```
+
+---
+
+```js
+resp.success(statusCode, data)
+```
+#### Params
 ##### statusCode
 
 Type: `int`
@@ -41,8 +53,24 @@ Type: `object`
 
 Response payload.
 
-### resp.error(statusCode, message, data)
+#### Returns
 
+Type: `object`
+
+```js
+{
+  status: "success",
+  httpStatus: (int)statusCode,
+  data: (obj)data
+}
+```
+
+---
+
+```js
+resp.error(statusCode, message, data)
+```
+#### Params
 ##### statusCode
 
 Type: `int`
@@ -61,8 +89,27 @@ Type: `object`
 
 Any additional response data.
 
-### resp.fail(statusCode, data)
+#### Returns
 
+Type: `string`
+
+Stringified object to be parsed in API Gateway output mapping.
+
+```JSON
+{
+  "status": "error",
+  "httpStatus": "(int)statusCode",
+  "message": "(string)message",
+  "data": "(object)data"
+}
+```
+
+---
+
+```js
+resp.fail(statusCode, data)
+```
+### Params
 ##### statusCode
 
 Type: `int`
@@ -75,6 +122,21 @@ Type: `object`
 
 Response data that may help explain the issue. Can be be a string if the information is better presented as one.
 
+#### Returns
+
+Type: `string`
+
+Stringified object to be parsed in API Gateway output mapping.
+
+```JSON
+{
+  "status": "fail",
+  "httpStatus": "(int)statusCode",
+  "data": "(object)data"
+}
+```
+
+---
 
 ## License
 

@@ -1,6 +1,6 @@
-const lambdaResp = {
+1const lambdaResp = {
   /**
-   * Lwqmbda standard success response.
+   * Lambda standard success response.
    *
    * @param  {integer}  statusCode  - Http status code to be mapped.
    * @param  {object}  data  - Payload to return.

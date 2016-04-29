@@ -1,4 +1,4 @@
-1const lambdaResp = {
+const lambdaResp = {
   /**
    * Lambda standard success response.
    *

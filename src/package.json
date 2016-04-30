@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run-script lint && npm run-script unit",
-    "lint": "eslint {./*.js\\,./tests/*.js}",
+    "lint": "eslint {./*.js\\,./tests/*.js\\,./models/*.js}",
     "unit": "babel-node ./node_modules/.bin/babel-istanbul cover ./node_modules/mocha/bin/_mocha -- tests/*.js",
     "compile": "babel . --out-dir ../dist --ignore='node_modules/**\\,coverage/**' --copy-files",
     "deploy": "cp ../README.md README.md && npm publish"

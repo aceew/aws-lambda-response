@@ -1,6 +1,6 @@
 {
   "name": "aws-lambda-response",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "A simple package for building standard responses in AWS Lambda callback functions.",
   "main": "index.js",
   "scripts": {

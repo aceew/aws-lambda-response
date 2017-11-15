@@ -2,6 +2,8 @@
 
 > A simple package for building standard responses in AWS Lambda callback functions to be handled by API Gateway.
 
+*This package was written before Lambda Proxy Integrations existed. If you are looking for a package to handle lambda proxy responses, check out [lambda-proxy-response](https://www.npmjs.com/package/lambda-proxy-response)*
+
 ## Install
 ```
 $ npm install --save aws-lambda-response
